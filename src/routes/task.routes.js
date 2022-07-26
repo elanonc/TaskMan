@@ -10,8 +10,8 @@ taskRoutes.get("/task/:id", getTask);
 
 taskRoutes.post("/task", createTask);
 
-taskRoutes.delete("/task/:id", deleteTask);
-
 taskRoutes.put("/task/:id", updateTask);
+
+taskRoutes.delete("/task/:id", deleteTask);
 
 module.exports = taskRoutes;
