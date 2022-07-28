@@ -12,12 +12,6 @@ app.use(router);
 
 
 app.use((err, request, response, next) => {
-    /*if(error){
-        return response.status(500).json({
-            status: "error",
-            message: error.message,
-          });
-    }*/
     return response.status(500).json({
       status: "error",
       message: err.message,
