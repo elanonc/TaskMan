@@ -1,0 +1,14 @@
+#task-card-content {
+
+}
+
+#task-card {
+    margin-top: 5rem;
+    background-color: #eee;
+    padding: 1rem;
+}
+
+#title-field {
+    display: block;
+    margin: 0.5rem 0;
+}

@@ -1,17 +1,18 @@
 import './App.css';
-import { BrowserRouter, Routes } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Container } from "@mui/material"
 import Navbar from "./components/Navbar";
+import Taskform from "./components/Taskform";
 
 function App() {
   	return (
     	<BrowserRouter>
-			<Navbar>
+			<Navbar/>
 				<Container>
 					<Routes>
+						<Route path="/task/new" element={<Taskform/>} />
 					</Routes>
 				</Container>
-			</Navbar>
     	</BrowserRouter>
   	)
 }
