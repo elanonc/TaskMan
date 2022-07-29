@@ -1,6 +1,7 @@
 import { Grid, Card, Typography, CardContent, TextField, Button } from "@mui/material";
 import "./Taskform.css";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Taskform() {
 
@@ -9,10 +10,20 @@ function Taskform() {
         description: " "
     });
 
-    const handleSubmit = (e) => {
+    const navigate = useNavigate();
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
-        console.log(task);
+        const response = await fetch("http://localhost:5432/task", {
+            method: 'POST',
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(task),
+        });
+
+        await response.json();
+
+        navigate("/");
     };
 
     const handleChange = (e) => {
