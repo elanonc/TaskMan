@@ -1,0 +1,16 @@
+#tasklist-card{
+    margin-bottom: .7rem;
+}
+
+#tasklist-cardcontent {
+    display: flex;
+    justify-content: space-between;
+}
+
+.tasklist-task {
+    color: #000;
+}
+
+#button-edit {
+    margin-right: .5rem;
+}
