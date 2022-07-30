@@ -6,22 +6,34 @@ function Tasklist(){
 
     const [taskList, setTaskList] = useState([]);
 
-    const loadTasks = async () => {
+    const getTasks = async () => {
         const response = await fetch("http://localhost:5432/task");
-        const data = await response.json();
-        setTaskList(data);
+        const jsonData = await response.json();
+        setTaskList(jsonData);
+    }
+
+    const handleDelete = async (id) => {
+        try {
+            const deleteTask = await fetch(`http://localhost:5432/task/${id}`, {
+            method: "DELETE",
+            })
+
+            setTaskList(taskList.filter(taskItem => taskItem.id != id));
+        } catch(error) {
+            console.log(error.message);
+        }
     }
 
     useEffect(()=> {
-        loadTasks();
+        getTasks();
     }, [])
 
     return (
         <>
-            <h1>something in the way...</h1>
+            <h1>Tarefas:</h1>
             {
                 taskList.map((taskItem) => (
-                    <Card id="tasklist-card">
+                    <Card id="tasklist-card" key={taskItem.id}>
                         <CardContent id="tasklist-cardcontent">
                             <div className="tasklist-task">
                                 <Typography>{taskItem.title}</Typography>
@@ -33,7 +45,8 @@ function Tasklist(){
                                     Editar
                                 </Button>
 
-                                <Button id="button-delete" variant="contained" color="error">
+                                <Button id="button-delete" variant="contained" color="error"
+                                        onClick={() => handleDelete(taskItem.id)}>
                                     Deletar
                             </Button>
                             </div>

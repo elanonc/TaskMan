@@ -11,6 +11,12 @@
     color: #000;
 }
 
+.tasklist-buttons {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
 #button-edit {
     margin-right: .5rem;
 }
