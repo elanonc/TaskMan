@@ -73,7 +73,6 @@ function Taskform() {
                                     style: {color: "#000000"}
                                 }}
                                 InputLabelProps={{ 
-
                                     style: {color: "#000000"}
                                 }} 
                             /> 
@@ -91,7 +90,8 @@ function Taskform() {
                                 }}  
                             />
 
-                            <Button id="save-button" variant="contained" type="submit"> Salvar </Button>
+                            <Button variant="contained" type="submit" onClick={ () => toNavigate("/task/new") } > 
+                                    Salvar </Button>
                         </form>
                         
                     </CardContent>

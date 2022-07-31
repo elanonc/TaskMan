@@ -3,3 +3,7 @@
     background-color: #eee;
     padding: 1rem;
 }
+
+#task-card-content{
+    margin-bottom: -0.2rem;
+}
