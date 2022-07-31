@@ -11,8 +11,9 @@ function App() {
 			<Navbar/>
 				<Container>
 					<Routes>
-						<Route index path="/" element={<Tasklist />} />
-						<Route path="/task/new" element={<Taskform/>} />
+						<Route path="/" element={<Tasklist />} />
+						<Route path="/task/new" element={<Taskform />} />
+						<Route path="/task/:id/edit" element={<Taskform />} />
 					</Routes>
 				</Container>
     	</BrowserRouter>

@@ -1,5 +1,6 @@
-import { Card, Typography, CardContent, Button } from "@mui/material";
+import { Card, Typography, CardContent, Button, CardMedia } from "@mui/material";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Tasklist.css";
 
 function Tasklist(){
@@ -22,16 +23,19 @@ function Tasklist(){
         } catch(error) {
             console.log(error.message);
         }
-    }
+    };
+
+    const toNavigate = useNavigate()
 
     useEffect(()=> {
         getTasks();
-    }, [])
+    }, []);
 
     return (
         <>
-            <h1>Tarefas:</h1>
+            { taskList.length != 0 ? (<h1>Gerenciador de Tarefas</h1>) : ( <h1></h1>)}
             {
+                
                 taskList.map((taskItem) => (
                     <Card id="tasklist-card" key={taskItem.id}>
                         <CardContent id="tasklist-cardcontent">
@@ -41,15 +45,17 @@ function Tasklist(){
                             </div>
 
                             <div className="tasklist-buttons">
-                                <Button id="button-edit" variant="contained" color="success">
+                                <Button id="button-edit" variant="contained" color="success"
+                                        onClick={() => toNavigate(`/task/${taskItem.id}/edit`)}>
                                     Editar
                                 </Button>
 
                                 <Button id="button-delete" variant="contained" color="error"
                                         onClick={() => handleDelete(taskItem.id)}>
                                     Deletar
-                            </Button>
+                                </Button>
                             </div>
+
                         </CardContent>
                     </Card>
                 ))
